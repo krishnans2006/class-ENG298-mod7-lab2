@@ -134,7 +134,7 @@ grype sbom:deliverables/system_sbom_before.json -o table > deliverables/system_v
 1. Take a second snapshot - save the updated package list as *after_patch.txt* inside your `/deliverables` folder:
 
    ```bash
-   dpkg -l > deliverables/after_patch.txt:
+   dpkg -l > deliverables/after_patch.txt
    ```
 2. Regenerate the SBOM after updates:
 
