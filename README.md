@@ -130,7 +130,7 @@ grype sbom:deliverables/system_sbom_before.json -o table > deliverables/system_v
     ```
 (If no packages are listed, all updates were applied).
 
-#### **Part 4 – post-Update Analysis**
+#### **Part 4 – Post-Update Analysis**
 1. Take a second snapshot - save the updated package list as *after_patch.txt* inside your `/deliverables` folder:
 
    ```bash
