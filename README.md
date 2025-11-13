@@ -90,20 +90,27 @@ syft scan dir:/ -o spdx-json > deliverables/system_sbom_before.json
 | **Syntax Breakdown** | **Description**
 |---------------|------------------------|
 | **syft** | Program used to create an SBOM in an .spdx format
-|**scan** | Program sub-command used to *scan* the Codespace’s Ubuntu filesystem for installed packages
-|**dir:/** | The directory to be scanned; in this case, root filesystem (/)
-|**-o spdx-json** | Output (*-o*) the results in an *SPDX JSON* format
-|**> deliverables/system_sbom_before.json**| Save the previous line's results in a file named *system_sbom_before.json* in the `deliverables` folder
+| **scan** | Program sub-command used to *scan* the Codespace’s Ubuntu filesystem for installed packages
+| **dir:/** | The directory to be scanned; in this case, root filesystem (/)
+| **-o spdx-json** | Output (*-o*) the results in an *SPDX JSON* format
+| **> deliverables/system_sbom_before.json**| Standard shell redirection (*>*) that save the previous line's results in a file named *system_sbom_before.json* in the `deliverables` folder
 
 2. Use Grype to scan the SBOM for known vulnerabilities:
 
 ```bash
 grype sbom:deliverables/system_sbom_before.json -o table > deliverables/system_vulns_before.txt
-``` 
+```
+
+| **Syntax Breakdown** | **Description**
+|---------------|------------------------|
+| **grype** | Program used to scan something for vulnerabilities
+| **sbom:deliverables/system_sbom_before.json** | Program sub-command (*sbom*) used to tell Grype what to scan; in this case, the SBOM file generated in the previous step
+| **-o table** | Output (*-o*) the results as a human-readable *table*
+| **> deliverables/system_vulns_before.txt**| Standard shell redirection (*>*) that takes the previous command and saves it in a file names *system_vulns_before.txt* in the `deliverables` folder
 
 3. Review and record:
-* Total number of packages detected
-* Number of vulnerabilities by severity (Critical, High, Medium, Low)
+* Total number of packages detected, and
+* Number of vulnerabilities by severity (Critical, High, Medium, Low).
 
 #### **Part 3 – Identify and Apply System Updates**
 1. Update the package database:
